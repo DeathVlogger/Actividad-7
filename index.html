@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Monitoreo Logístico - NexusLog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <input type="checkbox" id="toggle-modal" class="modal-logic">
+    
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <h2>Formulario de Emergencia: Reasignación de Choferes y Rutas</h2>
+            <form class="modal-form" onsubmit="return false;">
+                <div class="form-group">
+                    <label for="modal-unidad">Unidad de Transporte:</label>
+                    <input type="text" id="modal-unidad" placeholder="Ej. Trailer-04 (Eje Norte)">
+                </div>
+                <div class="form-group">
+                    <label for="modal-chofer">Operador Asignado:</label>
+                    <input type="text" id="modal-chofer" placeholder="Nombre completo del operador">
+                </div>
+                <div class="form-group">
+                    <label for="modal-ruta">Nueva Ruta Crítica:</label>
+                    <input type="text" id="modal-ruta" placeholder="Ej. Desvío por Carretera Intercostal 57">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">Confirmar Despacho</button>
+                    <label for="toggle-modal" class="btn-close">Cancelar</label>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="dashboard-container">
+        
+        <aside class="sidebar">
+            <div class="logo">NexusLog</div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-btn active">Panel General</a>
+                <a href="#seccion-flotas" class="nav-btn">Monitoreo de Flotas</a>
+                <a href="#seccion-incidencias" class="nav-btn">Bitácora de Incidencias</a>
+                <label for="toggle-modal" class="nav-btn trigger-btn">Comando de Despacho</label>
+            </nav>
+        </aside>
+
+        <div class="main-content">
+            
+            <header class="telemetry-header">
+                <div class="kpi-card">
+                    <span class="kpi-title">Unidades Activas en Ruta</span>
+                    <span class="kpi-value">42 / 50</span>
+                    <div class="kpi-bar"><div class="progress" style="width: 84%;"></div></div>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-title">Alertas de Retraso Crítico</span>
+                    <span class="kpi-value alert-text">3</span>
+                    <div class="kpi-bar"><div class="progress alert-bg" style="width: 30%;"></div></div>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-title">Órdenes Procesadas Hoy</span>
+                    <span class="kpi-value">118</span>
+                    <div class="kpi-bar"><div class="progress success-bg" style="width: 100%;"></div></div>
+                </div>
+            </header>
+
+            <section class="critical-banner">
+                <div class="banner-badge">ALERTA INDUSTRIAL</div>
+                <div class="banner-body">
+                    <h3>Bloqueo de Ruta en Frontera Norte</h3>
+                    <p>Cruce aduanal suspendido temporalmente por fallo de sistema externo. Desvíos requeridos para flotas en ruta de exportación.</p>
+                </div>
+            </section>
+
+            <div class="section-title-container" id="seccion-flotas">
+                <h2>4. Rejilla de Control de Flotas de Distribución</h2>
+            </div>
+
+            <main class="fleet-grid">
+                <div class="fleet-card">
+                    <div class="card-header">
+                        <h3>Unidad MX-T01</h3>
+                        <span class="status-badge online">En Ruta</span>
+                    </div>
+                    <p class="card-meta">Operador: R. Vasquez</p>
+                    <p class="card-meta">Carga: Electrónicos (Alta Densidad)</p>
+                    <div class="card-footer">
+                        <span>Progreso de Ruta: 75%</span>
+                    </div>
+                </div>
+
+                <div class="fleet-card">
+                    <div class="card-header">
+                        <h3>Unidad US-T09</h3>
+                        <span class="status-badge warning">Retrasado</span>
+                    </div>
+                    <p class="card-meta">Operador: J. Camacho</p>
+                    <p class="card-meta">Carga: Componentes Industriales</p>
+                    <div class="card-footer">
+                        <span class="alert-text">Ubicación: Frontera Norte (Detenido)</span>
+                    </div>
+                </div>
+
+                <div class="fleet-card">
+                    <div class="card-header">
+                        <h3>Unidad MX-T04</h3>
+                        <span class="status-badge online">En Ruta</span>
+                    </div>
+                    <p class="card-meta">Operador: S. Hernández</p>
+                    <p class="card-meta">Carga: Productos Perecederos</p>
+                    <div class="card-footer">
+                        <span>Progreso de Ruta: 40%</span>
+                    </div>
+                </div>
+            </main>
+
+            <section class="accordion-feed" id="seccion-incidencias">
+                <h2>5. Bitácora de Incidencias en Ruta (Módulo Reactivo)</h2>
+                
+                <div class="accordion-item">
+                    <input type="radio" id="incidencia-1" name="incidencias-group" checked>
+                    <label for="incidencia-1" class="accordion-header">
+                        <span class="acc-icon">⚠️</span>
+                        <span class="acc-title">Incidencia #INC-1024 - Bloqueo en Aduana (Frontera Norte)</span>
+                    </label>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p><strong>Estado:</strong> Crítico | <strong>Hora de reporte:</strong> 14:32 hrs.</p>
+                            <p>La unidad US-T09 se encuentra retenida en el punto de revisión debido al fallo masivo del sistema de visado digital. Se requiere aplicar el comando de reasignación de ruta mediante el modal de despacho de emergencia.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <input type="radio" id="incidencia-2" name="incidencias-group">
+                    <label for="incidencia-2" class="accordion-header">
+                        <span class="acc-icon">⚙️</span>
+                        <span class="acc-title">Incidencia #INC-1025 - Falla Mecánica Menor (Ruta Bajío)</span>
+                    </label>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p><strong>Estado:</strong> En resolución | <strong>Hora de reporte:</strong> 16:15 hrs.</p>
+                            <p>Pérdida menor de presión en neumático trasero izquierdo de la unidad MX-T04. El operador se detuvo en la estación de servicio autorizada del km 84 para cambio preventivo. Retraso estimado: 25 minutos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <input type="radio" id="incidencia-3" name="incidencias-group">
+                    <label for="incidencia-3" class="accordion-header">
+                        <span class="acc-icon">❄️</span>
+                        <span class="acc-title">Incidencia #INC-1026 - Alerta Climatológica en Eje Pacífico</span>
+                    </label>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p><strong>Estado:</strong> Monitoreo | <strong>Hora de reporte:</strong> 17:02 hrs.</p>
+                            <p>Reporte de tormenta local severa con reducción importante de visibilidad en el tramo costero. Se instruyó a las unidades circundantes reducir la velocidad crucero a 60 km/h y encender luces estroboscópicas de alta intensidad.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+</body>
+</html>
