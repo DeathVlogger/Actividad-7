@@ -1,6 +1,3 @@
-/* ==========================================================================
-   1. CONFIGURACIÓN GENERAL Y ESTILOS BASE
-   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -9,21 +6,18 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Desplazamiento fluido en anclas de navegación */
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: #e0e8ef; /* Fondo intermedio preciso: Vital para el Neumorfismo */
+    background-color: #e0e8ef;
     color: #334155;
     padding: 25px;
 }
 
-/* ==========================================================================
-   2. DISTRIBUCIÓN PRINCIPAL (CSS Grid Macro Layout)
-   ========================================================================== */
 .dashboard-container {
     display: grid;
-    grid-template-columns: 280px 1fr; /* Barra lateral fija y área de contenido flexible */
+    grid-template-columns: 280px 1fr;
     gap: 30px;
     max-width: 1500px;
     margin: 0 auto;
@@ -41,9 +35,6 @@ body {
     font-weight: 600;
 }
 
-/* ==========================================================================
-   3. COMPONENTE 1: BARRA LATERAL (Aside Neumórfico)
-   ========================================================================== */
 .sidebar {
     background: #e0e8ef;
     border-radius: 24px;
@@ -51,12 +42,10 @@ body {
     height: calc(100vh - 50px);
     position: sticky;
     top: 25px;
-    /* Relieve Convexo Marcado */
-    box-shadow: 8px 8px 18px #b8c4ce, 
-                -8px -8px 18px #ffffff;
     display: flex;
     flex-direction: column;
     gap: 45px;
+    border: 1px solid #cbd5e1;
 }
 
 .logo {
@@ -65,7 +54,6 @@ body {
     text-align: center;
     color: #0f172a;
     letter-spacing: 1.5px;
-    text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
 }
 
 .nav-menu {
@@ -86,28 +74,22 @@ body {
     cursor: pointer;
     border: none;
     text-align: left;
+    background: transparent;
 }
 
-/* Simulación de Hundimiento al pasar el cursor o al estar activo (:hover y active) */
-.nav-btn:hover, .nav-btn.active {
+.nav-btn:hover,
+.nav-btn.active {
     color: #1e40af;
-    /*box-shadow: inset*/
-    box-shadow: inset 5px 5px 10px #b8c4ce, 
-                inset -5px -5px 10px #ffffff;
+    background: #dbeafe;
 }
 
-/* Botón especial disparador del modal */
 .trigger-btn {
     background: #dbeafe;
     color: #1e40af;
     margin-top: 10px;
     text-align: center;
-    box-shadow: 4px 4px 10px #b8c4ce, -4px -4px 10px #ffffff;
 }
 
-/* ==========================================================================
-   4. COMPONENTE 2: ENCABEZADO DE TELEMETRÍA (Header + KPIs + Flexbox)
-   ========================================================================== */
 .telemetry-header {
     display: flex;
     justify-content: space-between;
@@ -119,11 +101,10 @@ body {
     background: #e0e8ef;
     padding: 22px;
     border-radius: 18px;
-    box-shadow: 6px 6px 12px #b8c4ce, 
-                -6px -6px 12px #ffffff;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    border: 1px solid #cbd5e1;
 }
 
 .kpi-title {
@@ -146,7 +127,6 @@ body {
     background: #edf2f7;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: inset 1px 1px 3px #b8c4ce, inset -1px -1px 3px #ffffff;
 }
 
 .progress {
@@ -155,20 +135,23 @@ body {
     border-radius: 10px;
 }
 
-.alert-text { color: #dc2626; }
-.alert-bg { background: #dc2626; }
-.success-bg { background: #16a34a; }
+.alert-text {
+    color: #dc2626;
+}
 
-/* ==========================================================================
-   5. COMPONENTE 3: BANNER DE ESTADO CRÍTICO (Acento Industrial)
-   ========================================================================== */
+.alert-bg {
+    background: #dc2626;
+}
+
+.success-bg {
+    background: #16a34a;
+}
+
 .critical-banner {
     background: #e0e8ef;
     padding: 25px;
     border-radius: 18px;
-    box-shadow: 6px 6px 12px #b8c4ce, 
-                -6px -6px 12px #ffffff;
-    border-left: 6px solid #ea580c; /* Color de acento regulado industrial */
+    border-left: 6px solid #ea580c;
     display: flex;
     align-items: center;
     gap: 25px;
@@ -182,7 +165,6 @@ body {
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 1px;
-    box-shadow: 0 4px 10px rgba(234, 88, 12, 0.3);
 }
 
 .banner-body h3 {
@@ -196,12 +178,9 @@ body {
     color: #475569;
 }
 
-/* ==========================================================================
-   6. COMPONENTE 4: REJILLA DE FLOTAS (Grid Cards)
-   ========================================================================== */
 .fleet-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Grid responsivo */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
 }
 
@@ -209,26 +188,22 @@ body {
     background: #e0e8ef;
     padding: 25px;
     border-radius: 20px;
-    /* Relieve Neumórfico Convexo */
-    box-shadow: 6px 6px 14px #b8c4ce, 
-                -6px -6px 14px #ffffff;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: background 0.2s ease;
+    border: 1px solid #cbd5e1;
 }
 
 .fleet-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 10px 10px 20px #acb8c2, 
-                -10px -10px 20px #ffffff;
+    background: #dbeafe;
 }
 
 .card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     padding-bottom: 10px;
 }
 
@@ -244,8 +219,15 @@ body {
     font-weight: 600;
 }
 
-.status-badge.online { background: #dcfce7; color: #16a34a; }
-.status-badge.warning { background: #fee2e2; color: #dc2626; }
+.status-badge.online {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.status-badge.warning {
+    background: #fee2e2;
+    color: #dc2626;
+}
 
 .card-meta {
     font-size: 13px;
@@ -258,18 +240,14 @@ body {
     color: #64748b;
     font-weight: 600;
     padding-top: 10px;
-    border-top: 1px solid rgba(0,0,0,0.05);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* ==========================================================================
-   7. COMPONENTE 5: SISTEMA DE ACORDEONES (CSS Puro con Radio Inputs)
-   ========================================================================== */
 .accordion-feed {
     background: #e0e8ef;
     padding: 30px;
     border-radius: 24px;
-    box-shadow: 7px 7px 16px #b8c4ce, 
-                -7px -7px 16px #ffffff;
+    border: 1px solid #cbd5e1;
 }
 
 .accordion-feed h2 {
@@ -282,12 +260,9 @@ body {
     margin-bottom: 18px;
     border-radius: 14px;
     overflow: hidden;
-    /* Contenedor con hendidura leve */
-    box-shadow: inset 2px 2px 6px #b8c4ce, 
-                inset -2px -2px 6px #ffffff;
+    border: 1px solid #cbd5e1;
 }
 
-/* Ocultar inputs radio completamente */
 .accordion-item input[type="radio"] {
     display: none;
 }
@@ -309,7 +284,7 @@ body {
 }
 
 .accordion-content {
-    max-height: 0; /* Colapsado por defecto */
+    max-height: 0;
     overflow: hidden;
     transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     background: #f1f5f9;
@@ -326,51 +301,43 @@ body {
     margin-bottom: 10px;
 }
 
-/* REACCIÓN DEL ACORDEÓN: Al estar marcado (:checked), expande de forma fluida */
 .accordion-item input[type="radio"]:checked ~ .accordion-content {
-    max-height: 200px; /* Altura máxima permitida al abrir */
+    max-height: 200px;
 }
 
-/* Resalta el encabezado del acordeón que está seleccionado actualmente */
 .accordion-item input[type="radio"]:checked ~ .accordion-header {
     background: #dbeafe;
     color: #1e40af;
 }
 
-/* ==========================================================================
-   8. COMPONENTE 6: VENTANA MODAL FLOTANTE (CSS Puro con Checkbox)
-   ========================================================================== */
-/* Ocultar input checkbox de control del modal */
 .modal-logic {
     display: none;
 }
 
-/* Capa oscura exterior de fondo */
 .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(15, 23, 42, 0.65); /* Capa sólida mate */
+    background: rgba(15, 23, 42, 0.65);
     backdrop-filter: blur(2px);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
     opacity: 0;
-    pointer-events: none; /* Evita que reciba clics si está oculto */
+    pointer-events: none;
     transition: opacity 0.3s ease;
 }
 
-/* Panel central de la ventana emergente */
 .modal-content {
     background: #e0e8ef;
     padding: 40px;
     border-radius: 24px;
     width: 90%;
     max-width: 550px;
-    box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid #cbd5e1;
 }
 
 .modal-content h2 {
@@ -379,13 +346,11 @@ body {
     margin-bottom: 5px;
 }
 
-/* REACCIÓN ACTIVADORA DEL MODAL: Si el checkbox está :checked, activa visibilidad */
 .modal-logic:checked ~ .modal-overlay {
     opacity: 1;
     pointer-events: auto;
 }
 
-/* Formulario interno y controles */
 .modal-form {
     display: flex;
     flex-direction: column;
@@ -407,20 +372,16 @@ body {
 
 .form-group input {
     padding: 14px;
-    border: none;
+    border: 1px solid #cbd5e1;
     border-radius: 12px;
-    background: #e0e8ef;
-    /* Entrada de texto neumórfica cóncava (Hundida) */
-    box-shadow: inset 3px 3px 6px #b8c4ce, 
-                inset -3px -3px 6px #ffffff;
+    background: #f8fafc;
     outline: none;
     font-size: 14px;
     color: #1e293b;
 }
 
 .form-group input:focus {
-    box-shadow: inset 3px 3px 6px #aebac4, 
-                inset -3px -3px 6px #ffffff;
+    border-color: #2563eb;
 }
 
 .form-actions {
@@ -439,7 +400,6 @@ body {
     cursor: pointer;
     font-weight: 600;
     font-size: 14px;
-    box-shadow: 3px 3px 8px rgba(30, 64, 175, 0.3);
     transition: background 0.2s;
 }
 
@@ -455,14 +415,11 @@ body {
     font-weight: 600;
     font-size: 14px;
     color: #475569;
-    /* Botón cancelar con relieve tradicional hacia afuera */
-    box-shadow: 4px 4px 8px #b8c4ce, 
-                -4px -4px 8px #ffffff;
     text-align: center;
-    transition: all 0.2s;
+    transition: background 0.2s;
+    border: 1px solid #cbd5e1;
 }
 
 .btn-close:hover {
-    box-shadow: inset 2px 2px 5px #b8c4ce, 
-                inset -2px -2px 5px #ffffff;
+    background: #dbeafe;
 }
